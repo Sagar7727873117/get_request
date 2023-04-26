@@ -2,9 +2,9 @@ import requests
 city_name = input("Enter the city name :-")
 tocken = '92bd5ed0fd962d92d7f36453b5a27995'
 url = f"http://api.openweathermap.org/geo/1.0/direct?q={city_name}&appid={tocken}"
-a = str(requests.get(url).status_code)
-print("Status code is :- "+a)
-b = requests.get(url).json()
+a = requests.get(url)
+print("Status code is :- "+str(a.status_code))
+b = a.json()
 print(len(b))
 if len(b) == 0:
     print("Their is no city name in our world.")
